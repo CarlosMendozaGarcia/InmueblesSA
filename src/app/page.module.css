@@ -43,7 +43,6 @@
   align-items: center;
   padding: 0 2rem;
   height: 80%;
-  
 }
 
 .services_title {
@@ -80,13 +79,40 @@
 }
 
 .allies_section {
-  background: #5C7C95;
+  background: #5c7c95;
   height: 30rem;
 }
 
-.footer{
-  background: #1E3A5F;
-  color:white;
+.allies_content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 1rem;
+}
+
+.allies {
+  display:flex;
+  height:50%;
+  gap: 1rem;
+}
+.card_allies {
+  max-width: 20rem;
+  background: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 0 1rem;
+  box-shadow: 2px 10px 11px -1px rgba(0,0,0,0.59);
+}
+
+.footer {
+  background: #1e3a5f;
+  color: white;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -94,10 +120,23 @@
   gap: 1rem;
 }
 
-.footer p{
+.footer p {
   text-align: center;
 }
 .footer_content {
-    display:flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.landingpage {
+  animation: fadeIn 2s ease-in-out;
 }

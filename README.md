@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Este es un proyecto realizado en Next.js junto a typescript, base de datos en mongo db
+## Inicializar
 
-## Getting Started
+primero se debera de instalar las librerias utilizadas en el proyecto para ello:
 
-First, run the development server:
+```bash
+npm install
+```
+y a su vez colocar en la raiz  un .env conteniendo la URL para la conexión a la base de datos:
+
+```bash
+MONGODB_URI=mongodb+srv://<mongodb_user>:<mongodb_user_password@cluster0.x7sy9u7.mongodb.net/?retryWrites=true&w=majorityappName=Cluster0
+
+```
+## Base de datos / API
+
+se debe de inicializar la base de datos por lo que se debe de utilizar el siguiente comando:
+
+```bash
+npm run seed
+```
+
+Esto creara en la base de datos 50 propiedades con nombre, barrio, ciudad, precio y tipo de venta aleatorios
+
+los endpoints agregados a este proyecto fueron GET:api\propiedades y POST:api\propiedades
+
+## Ejecución del proyecto
+
+Para ejecutar el proyecto se debera de colocar el siguiente comando en la terminal
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+y abrir [http://localhost:3000](http://localhost:3000) en el navegador para visualizar 
