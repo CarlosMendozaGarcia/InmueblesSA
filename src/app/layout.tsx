@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import styles from "./layout.module.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +27,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <header>
+          <nav className={styles.navbar}>
+            <div className="logo">
+              <h1>InmueblesSA</h1>
+            </div>
+            <div className={styles.nav_links}>
+              <ul>
+                <li><Link href="/">Inicio</Link></li>
+                <li><Link href="/Search">Buscar propiedad</Link></li>
+              </ul>
+            </div>
+          </nav>
+        </header>
         {children}
       </body>
     </html>

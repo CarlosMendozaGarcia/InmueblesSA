@@ -1,94 +1,104 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const serviceslist = [
+    {
+      img: "/service_1.svg",
+      alt: "compra-venta de inmuebles",
+      text: "compra-venta de inmuebles",
+    },
+    {
+      img: "/service_2.svg",
+      alt: "Asesorías legales",
+      text: "Asesorías legales",
+    },
+    {
+      img: "/service_3.svg",
+      alt: "Avalúos inmobiliarios",
+      text: "Avalúos inmobiliarios",
+    },
+    {
+      img: "/service_4.svg",
+      alt: "Administración de propiedades",
+      text: "Administración de propiedades",
+    },
+    {
+      img: "/service_5.svg",
+      alt: "Marketing y visibilidad",
+      text: "Marketing y visibilidad",
+    },
+  ];
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+    <div>
+      <section className={styles.welcome_section}>
+        <Image src="/Banner.png" fill alt="Banner" className={styles.banner} />
+        <div className={styles.welcome_content}>
+          <div className="welcome-text">
+            <h1>Bienvenido a Inmuebles SA</h1>
+            <p>Encuentra la casa de tus sueños a pocos clicks</p>
+          </div>
         </div>
-      </main>
+      </section>
+      <section className={styles.services_section}>
+        <div className={styles.services_content}>
+          <div className={styles.services_title}>
+            <h2>Nuestros Servicios</h2>
+          </div>
+          <div className={styles.services_list}>
+            <ul>
+              {serviceslist.map((service, index) => (
+                <li key={index}>
+                  <Image
+                    src={service.img}
+                    width={40}
+                    height={40}
+                    alt={service.alt}
+                  />
+                  <p>{service.text}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section className={styles.allies_section}>
+        <div className="allies-content">
+          <h2>Nuestros Aliados</h2>
+          <div className="display-allies"></div>
+        </div>
+      </section>
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <div className={styles.footer_content}>
+          <div className="Navegación">
+            <p>Navegación</p>
+            <ul>
+              <li>
+                <Link href="/">Inicio</Link>
+              </li>
+              <li>
+                <Link href="/Search">Buscar propiedad</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="Contacto">
+            <p>Contacto</p>
+            <ul>
+              <li>Tel: +57 123 456 7890</li>
+              <li>Email: inmueblessa@enterprise.com</li>
+            </ul>
+          </div>
+          <div className="Redes sociales">
+            <p>Redes sociales</p>
+            <ul>
+              <li>Facebook: Inmuebles SA</li>
+              <li>Instagram: @InmueblesSA</li>
+              <li>X: inmueblesSA</li>
+            </ul>
+          </div>
+        </div>
+        <p>desarrollado por Carlos Andres Mendoza Garcia </p>
       </footer>
     </div>
   );
