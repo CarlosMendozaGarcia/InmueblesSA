@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  const [activeServices, setActiveServices] = useState<number[]>([]);
+
   const serviceslist = [
     {
       img: "/service_1.svg",
@@ -30,6 +35,15 @@ export default function Home() {
       text: "Marketing y visibilidad",
     },
   ];
+
+  const toggleService = (index: number) => {
+    if (activeServices.includes(index)) {
+      setActiveServices(activeServices.filter((i) => i !== index));
+    } else {
+      setActiveServices([...activeServices, index]);
+    }
+  };
+
   return (
     <div>
       <section className={styles.welcome_section}>
@@ -50,13 +64,24 @@ export default function Home() {
             <ul>
               {serviceslist.map((service, index) => (
                 <li key={index}>
-                  <Image
-                    src={service.img}
-                    width={40}
-                    height={40}
-                    alt={service.alt}
-                  />
-                  <p>{service.text}</p>
+                  <div
+                    onClick={() => toggleService(index)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Image
+                      src={service.img}
+                      width={40}
+                      height={40}
+                      alt={service.alt}
+                    />
+                  </div>
+                  <p
+                    className={`${styles.serviceText} ${
+                      activeServices.includes(index) ? styles.open : ""
+                    }`}
+                  >
+                    {service.text}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -66,40 +91,11 @@ export default function Home() {
       <section className={styles.allies_section}>
         <div className="allies-content">
           <h2>Nuestros Aliados</h2>
-          <div className="display-allies"></div>
+          <div className="display-allies">
+            
+          </div>
         </div>
       </section>
-      <footer className={styles.footer}>
-        <div className={styles.footer_content}>
-          <div className="Navegación">
-            <p>Navegación</p>
-            <ul>
-              <li>
-                <Link href="/">Inicio</Link>
-              </li>
-              <li>
-                <Link href="/Search">Buscar propiedad</Link>
-              </li>
-            </ul>
-          </div>
-          <div className="Contacto">
-            <p>Contacto</p>
-            <ul>
-              <li>Tel: +57 123 456 7890</li>
-              <li>Email: inmueblessa@enterprise.com</li>
-            </ul>
-          </div>
-          <div className="Redes sociales">
-            <p>Redes sociales</p>
-            <ul>
-              <li>Facebook: Inmuebles SA</li>
-              <li>Instagram: @InmueblesSA</li>
-              <li>X: inmueblesSA</li>
-            </ul>
-          </div>
-        </div>
-        <p>desarrollado por Carlos Andres Mendoza Garcia </p>
-      </footer>
     </div>
   );
 }

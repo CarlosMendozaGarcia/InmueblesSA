@@ -43,6 +43,7 @@
   align-items: center;
   padding: 0 2rem;
   height: 80%;
+  
 }
 
 .services_title {
@@ -64,6 +65,18 @@
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+.serviceText {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.serviceText.open {
+  max-height: 100%;
+  opacity: 1;
 }
 
 .allies_section {
