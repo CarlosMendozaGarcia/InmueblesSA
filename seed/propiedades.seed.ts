@@ -13,7 +13,7 @@ async function seed() {
     // Limpiar la colección antes de insertar
     await Propiedad.deleteMany({});
 
-    const tiposInmueble = ["casa", "Apartamento", "Lote", "Oficina"];
+    const tiposInmueble = ["Casa", "Apartamento", "Lote", "Oficina"];
     const tiposVenta = ["Arriendo", "Venta"];
     const estados = ["Nuevo", "Destacado"];
 
